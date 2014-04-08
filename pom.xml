@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<!-- clase principal del juego -->
-		<gameClass>foo.Arkanoid</gameClass>
+		<gameClass>ar.edu.unq.arkanoid.Arkanoid</gameClass>
 		<!-- La dimensión con que se ve el applet. Debería conincidir con la definida 
 			en la clase del juego -->
 		<width>800</width>
@@ -19,12 +19,14 @@
 			se ejecuta si no existe. Ese comportamiento es intencional ya que el certificado 
 			generado para desarrollo debería ser reemplazado con uno acorde con el sitio 
 			web donde se deployará el applet -->
-		<security.dir>src/main/security/</security.dir>
+		<security.dir>src/main/security</security.dir>
+<!-- 		<security.dir>src/main/security/</security.dir> -->
 		<security.keystore>keystore.jks</security.keystore>
 		<security.alias>aliasDefault</security.alias>
 		<security.storepass>storePassDefault</security.storepass>
 		<security.keypass>keyPassDefault</security.keypass>
-		<security.dName>CN=hostname, OU=Example Department, O=Example Company, L=Buenos Aires, ST=Buenos Aires, C=AR </security.dName>
+		<security.dName>CN=hostname, OU=Example Department, O=Example Company,
+			L=Buenos Aires, ST=Buenos Aires, C=AR </security.dName>
 
 		<!-- Las siguientes propiedades no se suelen modificar -->
 
@@ -33,13 +35,14 @@
 			ejecuta el juego. El launcher del eclipse sólo se genera al inicio del proyecto 
 			y no se modifica al cambiar este parámetro. Por lo tanto en caso de modificarse 
 			se debe reconfigurar manualmente en el menu run configurations -->
-		<javaArgs>-Dsun.java2d.noddraw=true -Dsun.java2d.opengl=True -Xmx1024M -Xms512M</javaArgs>
+		<javaArgs>-Dsun.java2d.noddraw=true -Dsun.java2d.opengl=True -Xmx1024M
+			-Xms512M</javaArgs>
 		<!-- La clases launchers del en modo desktop, debe contener un main que 
 			reciba por parámetro la clase del juego -->
-		<mainClass>com.uqbar.vainilla.DesktopGameLauncher</mainClass>
+		<mainClass>ar.edu.unq.americana.DesktopGameLauncher</mainClass>
 		<!-- La clases launchers del en modo Applet, puede usar la clase del juego 
 			como parámetro -->
-		<appletClass>com.uqbar.vainilla.GameApplet</appletClass>
+		<appletClass>ar.edu.unq.americana.GameApplet</appletClass>
 		<!-- el html que dispara el launcher espera un único jar, para lo cual 
 			usa el plugin assembly para unir tanto el proyecto como sus dependencias 
 			en un único jar. Este parámetro configura el descriptor usado por el plugin 
@@ -81,7 +84,10 @@
 										<exec dir="${project.basedir}/${security.dir}"
 											executable="keytool" failonerror="true">
 											<arg
-												line="-genkey -keyalg RSA -alias ${security.alias} -keystore ${security.keystore} -dname  &quot;${security.dName}&quot; -storepass ${security.storepass} -validity 360 -keysize 2048 -keypass ${security.keypass}" />
+												line="-genkey -keyalg RSA -alias ${security.alias} -keystore ${security.keystore} -dname  ${security.dName} -storepass ${security.storepass} -validity 360 -keysize 2048 -keypass ${security.keypass}" />
+											<!-- line="-genkey -keyalg RSA -alias ${security.alias} -keystore 
+												${security.keystore} -dname &quot;${security.dName}&quot; -storepass ${security.storepass} 
+												-validity 360 -keysize 2048 -keypass ${security.keypass}" /> -->
 										</exec>
 									</else>
 								</if>
@@ -159,24 +165,24 @@
 			</plugin>
 			<!-- Firma los jars con el certificado para que pueda ser utilizado como 
 				un applet -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jarsigner-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-						<phase>package</phase>
-						<configuration>
-							<keystore>${security.dir}/${security.keystore}</keystore>
-							<alias>${security.alias}</alias>
-							<storepass>${security.storepass}</storepass>
-							<keypass>${security.keypass}</keypass>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-jarsigner-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<goals> -->
+<!-- 							<goal>sign</goal> -->
+<!-- 						</goals> -->
+<!-- 						<phase>package</phase> -->
+<!-- 						<configuration> -->
+<!-- 							<keystore>${security.dir}/${security.keystore}</keystore> -->
+<!-- 							<alias>${security.alias}</alias> -->
+<!-- 							<storepass>${security.storepass}</storepass> -->
+<!-- 							<keypass>${security.keypass}</keypass> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 			<!-- Genera los archivos que acompañan al jar generado por el assembly 
 				para que sea más sencillo su ejecución. En caso de quere modificar el .sh, 
 				el .bat o el .html generado se puede modficiar los templates o los parámetros 
