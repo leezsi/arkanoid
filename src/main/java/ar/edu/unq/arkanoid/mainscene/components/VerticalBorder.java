@@ -10,12 +10,16 @@ public class VerticalBorder extends GameComponent<MainScene> {
 
 	private final Integer width;
 	private final Integer height;
+	private final String id;
 
-	public VerticalBorder(final Integer width, final Integer height,
-			final Color color) {
+	public VerticalBorder(final double x, final double y, final Integer width,
+			final Integer height, final Color color, final String id) {
+		this.setX(x);
+		this.setY(y);
 		this.width = width;
 		this.height = height;
 		this.setAppearance(new Rectangle(color, width, height));
+		this.id = id;
 	}
 
 	public Integer getWidth() {
@@ -24,6 +28,10 @@ public class VerticalBorder extends GameComponent<MainScene> {
 
 	public Integer getHeight() {
 		return height;
+	}
+
+	public String getId() {
+		return id;
 	}
 
 }
