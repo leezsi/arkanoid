@@ -14,6 +14,7 @@ public class LeftCollisionRule extends AbstractCollisionRule {
 		block.die();
 		final Ball ball = scene.getBall();
 		ball.horizontalFlip();
+		ball.moreSpeed();
 		ball.setX(block.getAppearance().getX()
 				- (ball.getAppearance().getWidth() / 2));
 	}

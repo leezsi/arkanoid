@@ -50,8 +50,8 @@ public class Block extends GameComponent<MainScene> {
 
 	@Override
 	protected IRule<?, ?>[] rules() {
-		return new IRule<?, ?>[] { new LeftCollisionRule(),
-				new RightCollisionRule(), new TopCollisionRule(),
+		return new IRule<?, ?>[] { new TopCollisionRule(),
+				new LeftCollisionRule(), new RightCollisionRule(),
 				new BottomCollisionRule() };
 	}
 }

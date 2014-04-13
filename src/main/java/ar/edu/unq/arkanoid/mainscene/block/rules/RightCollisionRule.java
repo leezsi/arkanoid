@@ -15,6 +15,7 @@ public class RightCollisionRule extends AbstractCollisionRule {
 		block.die();
 		final Ball ball = scene.getBall();
 		ball.horizontalFlip();
+		ball.moreSpeed();
 		final Appearance appearance = block.getAppearance();
 		ball.setX(appearance.getX() + appearance.getWidth()
 				+ (ball.getAppearance().getWidth() / 2));
@@ -24,7 +25,7 @@ public class RightCollisionRule extends AbstractCollisionRule {
 	protected boolean isCollide(final double cx, final double cy,
 			final double radious, final double left, final double top,
 			final double right, final double bottom) {
-		return CollisionDetector.collidesCircleAgainstLine(cx, cx, radious,
+		return CollisionDetector.collidesCircleAgainstLine(cx, cy, radious,
 				right, top, right, bottom);
 	}
 

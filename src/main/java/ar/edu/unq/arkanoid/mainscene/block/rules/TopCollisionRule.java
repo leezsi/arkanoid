@@ -15,6 +15,7 @@ public class TopCollisionRule extends AbstractCollisionRule {
 		block.die();
 		final Ball ball = scene.getBall();
 		ball.verticalFlip();
+		ball.moreSpeed();
 		final Appearance appearance = block.getAppearance();
 		ball.setY(appearance.getY() - (ball.getAppearance().getWidth() / 2));
 	}

@@ -9,7 +9,7 @@ import ar.edu.unq.arkanoid.scenes.MainScene;
 
 public abstract class AbstractCollisionRule implements IRule<Block, MainScene> {
 
-	int delta = 0;
+	double delta = 0.1;
 
 	@Override
 	public boolean mustApply(final Block block, final Vector2D nextPosition,
