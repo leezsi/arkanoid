@@ -10,6 +10,7 @@ import ar.edu.unq.americana.events.annotations.Events.Keyboard.Press;
 import ar.edu.unq.americana.events.annotations.Events.Update;
 import ar.edu.unq.americana.rules.IRule;
 import ar.edu.unq.americana.utils.Tuning;
+import ar.edu.unq.americana.utils.Vector2D;
 import ar.edu.unq.arkanoid.Arkanoid;
 import ar.edu.unq.arkanoid.mainscene.ball.rules.FollowRule;
 import ar.edu.unq.arkanoid.mainscene.ball.rules.RacketCollisionRule;
@@ -97,6 +98,16 @@ public class Ball extends GameComponent<MainScene> {
 	@Override
 	protected double getSpeed() {
 		return currentSpeed;
+	}
+
+	public void horizontalFlip() {
+		final Vector2D d = this.getDirection();
+		this.setDirection(-d.getX(), d.getY());
+	}
+
+	public void verticalFlip() {
+		final Vector2D d = this.getDirection();
+		this.setDirection(d.getX(), -d.getY());
 	}
 
 }
