@@ -22,7 +22,7 @@ public class Arkanoid extends Game {
 			.getInteger("window.height");
 
 	public static final double HORIZONTAL_SPACE = WINDOW_WIDTH * .98;
-	public static final double VERTICAL_SPACE = WINDOW_HEIGHT * .60;
+	public static final double VERTICAL_SPACE = WINDOW_HEIGHT * .50;
 
 	private static int ROWS = Tuning.getInteger("table.rows");
 	private static int COLUMNS = Tuning.getInteger("table.columns") - 1;

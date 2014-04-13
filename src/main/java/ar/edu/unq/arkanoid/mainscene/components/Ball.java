@@ -22,8 +22,8 @@ import ar.edu.unq.arkanoid.scenes.MainScene;
 public class Ball extends GameComponent<MainScene> {
 	private static final int BALL_DIAMETER = Tuning.getInteger("ball.diameter");
 
-	public static double greaterAngle = -Math.PI / 3;
-	public static double lesserAngle = Math.PI / 3;
+	public static double greaterAngle = Math.PI / 3;
+	public static double lesserAngle = -Math.PI / 3;
 
 	private Racket racket;
 
