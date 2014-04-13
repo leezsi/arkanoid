@@ -31,9 +31,9 @@ public class TopCollisionRule implements IRule<Block, MainScene> {
 			final MainScene scene) {
 		block.die();
 		final Ball ball = scene.getBall();
+		ball.verticalFlip();
 		final Appearance appearance = block.getAppearance();
 		ball.setY(appearance.getY() - (ball.getAppearance().getWidth() / 2));
-		ball.verticalFlip();
 	}
 
 }

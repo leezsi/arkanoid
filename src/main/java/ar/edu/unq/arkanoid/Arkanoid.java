@@ -7,6 +7,7 @@ import java.util.Map;
 import ar.edu.unq.americana.Game;
 import ar.edu.unq.americana.appearances.Sprite;
 import ar.edu.unq.americana.utils.Tuning;
+import ar.edu.unq.arkanoid.mainscene.components.Ball;
 import ar.edu.unq.arkanoid.scenes.MainScene;
 import ar.edu.unq.arkanoid.utils.SpriteUtils;
 
@@ -28,6 +29,8 @@ public class Arkanoid extends Game {
 	private static int COLUMNS = Tuning.getInteger("table.columns") - 1;
 
 	private Dimension dimension;
+	public static Sprite GREY_BALL;
+	public static Sprite BLUE_BALL;
 
 	public static Map<Integer, Sprite> blocks = new HashMap<Integer, Sprite>();
 
@@ -36,14 +39,30 @@ public class Arkanoid extends Game {
 		dimension = new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT);
 		final double widthScale = HORIZONTAL_SPACE / COLUMNS;
 		final double heightScale = VERTICAL_SPACE / ROWS;
-		blocks.put(1,
-				SpriteUtils.get("assets/blocks/1.png", widthScale, heightScale));
-		blocks.put(2,
-				SpriteUtils.get("assets/blocks/2.png", widthScale, heightScale));
-		blocks.put(3,
-				SpriteUtils.get("assets/blocks/3.png", widthScale, heightScale));
-		blocks.put(4,
-				SpriteUtils.get("assets/blocks/4.png", widthScale, heightScale));
+		blocks.put(1, SpriteUtils.get(
+				"assets/blocks/element_blue_rectangle_glossy.png", widthScale,
+				heightScale));
+		blocks.put(2, SpriteUtils.get(
+				"assets/blocks/element_green_rectangle_glossy.png", widthScale,
+				heightScale));
+		blocks.put(3, SpriteUtils.get(
+				"assets/blocks/element_yellow_rectangle_glossy.png",
+				widthScale, heightScale));
+		blocks.put(4, SpriteUtils.get(
+				"assets/blocks/element_red_rectangle_glossy.png", widthScale,
+				heightScale));
+		blocks.put(5, SpriteUtils.get(
+				"assets/blocks/element_purple_rectangle_glossy.png",
+				widthScale, heightScale));
+		blocks.put(-1, SpriteUtils.get(
+				"assets/blocks/element_grey_rectangle_glossy.png", widthScale,
+				heightScale));
+
+		BLUE_BALL = SpriteUtils.get("assets/balls/ballBlue.png",
+				Ball.BALL_DIAMETER, Ball.BALL_DIAMETER);
+
+		GREY_BALL = SpriteUtils.get("assets/balls/ballGrey.png",
+				Ball.BALL_DIAMETER, Ball.BALL_DIAMETER);
 	}
 
 	@Override

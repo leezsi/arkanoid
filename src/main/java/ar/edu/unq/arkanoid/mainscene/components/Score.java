@@ -9,23 +9,26 @@ import ar.edu.unq.americana.events.annotations.Events;
 import ar.edu.unq.arkanoid.mainscene.events.BlockDestroyed;
 import ar.edu.unq.arkanoid.scenes.MainScene;
 
-public class Counter extends GameComponent<MainScene> {
+public class Score extends GameComponent<MainScene> {
 
 	private int value;
+	protected final Label label;
+	protected String text;
 
-	public Counter() {
+	public Score(final String text) {
 		value = 0;
-		this.setAppearance(new Label(new Font("verdana", Font.BOLD, 36),
-				Color.BLACK, String.valueOf(value)));
+		this.text = text;
+		label = new Label(new Font("verdana", Font.BOLD, 36), Color.BLACK, text
+				+ String.valueOf(value));
+		this.setAppearance(label);
 		this.setZ(Integer.MAX_VALUE);
-		this.setX(10);
-		this.setY(10);
+		this.setX((label.getWidth() / 2) + 15);
+		this.setY(15);
 	}
 
 	@Events.Fired(BlockDestroyed.class)
 	public void add(final BlockDestroyed destroyed) {
 		value++;
-		this.setAppearance(new Label(new Font("verdana", Font.BOLD, 36),
-				Color.BLACK, String.valueOf(value)));
+		label.setText(text + String.valueOf(value));
 	}
 }

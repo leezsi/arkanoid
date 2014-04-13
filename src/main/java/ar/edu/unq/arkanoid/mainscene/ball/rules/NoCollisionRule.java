@@ -1,7 +1,8 @@
-package ar.edu.unq.arkanoid.mainscene.components;
+package ar.edu.unq.arkanoid.mainscene.ball.rules;
 
 import ar.edu.unq.americana.rules.IRule;
 import ar.edu.unq.americana.utils.Vector2D;
+import ar.edu.unq.arkanoid.mainscene.components.Ball;
 import ar.edu.unq.arkanoid.scenes.MainScene;
 
 public class NoCollisionRule implements IRule<Ball, MainScene> {

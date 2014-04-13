@@ -29,10 +29,10 @@ public class RightCollisionRule implements IRule<Block, MainScene> {
 			final MainScene scene) {
 		block.die();
 		final Ball ball = scene.getBall();
+		ball.horizontalFlip();
 		final Appearance appearance = block.getAppearance();
 		ball.setX(appearance.getX() + appearance.getWidth()
 				+ (ball.getAppearance().getWidth() / 2));
-		ball.horizontalFlip();
 	}
 
 }

@@ -32,10 +32,10 @@ public class BottomCollisionRule implements IRule<Block, MainScene> {
 			final MainScene scene) {
 		block.die();
 		final Ball ball = scene.getBall();
+		ball.verticalFlip();
 		final Appearance appearance = block.getAppearance();
 		ball.setY((appearance.getY() + appearance.getHeight())
 				+ (ball.getAppearance().getHeight() / 2));
-		ball.verticalFlip();
 	}
 
 }

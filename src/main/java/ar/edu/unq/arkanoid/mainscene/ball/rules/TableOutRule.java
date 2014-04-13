@@ -28,5 +28,7 @@ public class TableOutRule implements IRule<Ball, MainScene> {
 		racket.setX(displayWidth / 2);
 		ball.setY(racket.getAppearance().getY()
 				- (ball.getAppearance().getHeight() / 2));
+		ball.playing = false;
+		ball.die();
 	}
 }

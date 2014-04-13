@@ -29,9 +29,9 @@ public class LeftCollisionRule implements IRule<Block, MainScene> {
 			final MainScene scene) {
 		block.die();
 		final Ball ball = scene.getBall();
+		ball.horizontalFlip();
 		ball.setX(block.getAppearance().getX()
 				- (ball.getAppearance().getWidth() / 2));
-		ball.horizontalFlip();
 	}
 
 }
