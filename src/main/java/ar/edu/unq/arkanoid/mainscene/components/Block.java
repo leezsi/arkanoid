@@ -42,6 +42,7 @@ public class Block extends GameComponent<MainScene> {
 		this.fireEvent(new BlockDestroyed());
 		if (--lives == 0) {
 			this.getScene().removeComponent(this);
+			Arkanoid.SOUND_BOOM.play();
 		} else {
 			updateAppearace();
 		}

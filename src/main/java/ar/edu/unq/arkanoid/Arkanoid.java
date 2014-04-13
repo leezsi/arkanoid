@@ -6,9 +6,11 @@ import java.util.Map;
 
 import ar.edu.unq.americana.Game;
 import ar.edu.unq.americana.appearances.Sprite;
+import ar.edu.unq.americana.sound.Sound;
 import ar.edu.unq.americana.utils.Tuning;
 import ar.edu.unq.arkanoid.mainscene.components.Ball;
 import ar.edu.unq.arkanoid.scenes.MainScene;
+import ar.edu.unq.arkanoid.utils.SoundUtils;
 import ar.edu.unq.arkanoid.utils.SpriteUtils;
 
 public class Arkanoid extends Game {
@@ -29,6 +31,7 @@ public class Arkanoid extends Game {
 	private static int COLUMNS = Tuning.getInteger("table.columns") - 1;
 
 	private Dimension dimension;
+	public static Sound SOUND_BOOM;
 	public static Sprite GREY_BALL;
 	public static Sprite BLUE_BALL;
 
@@ -37,6 +40,11 @@ public class Arkanoid extends Game {
 	@Override
 	protected void initializeResources() {
 		dimension = new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT);
+		initializeSprites();
+		SOUND_BOOM = SoundUtils.getSound("assets/sound/rumble.wav");
+	}
+
+	private void initializeSprites() {
 		final double widthScale = HORIZONTAL_SPACE / COLUMNS;
 		final double heightScale = VERTICAL_SPACE / ROWS;
 		blocks.put(1, SpriteUtils.get(
