@@ -5,20 +5,20 @@ import ar.edu.unq.americana.colissions.CollisionDetector;
 import ar.edu.unq.americana.utils.Vector2D;
 import ar.edu.unq.arkanoid.mainscene.components.Ball;
 import ar.edu.unq.arkanoid.mainscene.components.Block;
-import ar.edu.unq.arkanoid.scenes.MainScene;
+import ar.edu.unq.arkanoid.scenes.LevelScene;
 
 public class RightCollisionRule extends AbstractCollisionRule {
 
 	@Override
 	public void apply(final Block block, final Vector2D nextPosition,
-			final MainScene scene) {
+			final LevelScene scene) {
 		block.die();
 		final Ball ball = scene.getBall();
-		ball.horizontalFlip();
-		ball.moreSpeed();
 		final Appearance appearance = block.getAppearance();
 		ball.setX(appearance.getX() + appearance.getWidth()
 				+ (ball.getAppearance().getWidth() / 2));
+		ball.horizontalFlip();
+		ball.moreSpeed();
 	}
 
 	@Override

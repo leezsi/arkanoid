@@ -18,9 +18,9 @@ import ar.edu.unq.arkanoid.mainscene.ball.rules.TableLeftCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.ball.rules.TableOutRule;
 import ar.edu.unq.arkanoid.mainscene.ball.rules.TableRightCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.ball.rules.TableTopCollisionRule;
-import ar.edu.unq.arkanoid.scenes.MainScene;
+import ar.edu.unq.arkanoid.scenes.LevelScene;
 
-public class Ball extends GameComponent<MainScene> {
+public class Ball extends GameComponent<LevelScene> {
 	public static final int BALL_DIAMETER = Tuning.getInteger("ball.diameter");
 
 	private static final double deltaSpeed = Tuning

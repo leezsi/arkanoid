@@ -5,15 +5,15 @@ import ar.edu.unq.americana.rules.IRule;
 import ar.edu.unq.americana.utils.Vector2D;
 import ar.edu.unq.arkanoid.mainscene.components.Ball;
 import ar.edu.unq.arkanoid.mainscene.components.Block;
-import ar.edu.unq.arkanoid.scenes.MainScene;
+import ar.edu.unq.arkanoid.scenes.LevelScene;
 
-public abstract class AbstractCollisionRule implements IRule<Block, MainScene> {
+public abstract class AbstractCollisionRule implements IRule<Block, LevelScene> {
 
-	double delta = 0.1;
+	double delta = -0.3;
 
 	@Override
 	public boolean mustApply(final Block block, final Vector2D nextPosition,
-			final MainScene scene) {
+			final LevelScene scene) {
 		final Appearance appearance = block.getAppearance();
 		final double left = appearance.getX() - delta;
 		final double top = appearance.getY() - delta;

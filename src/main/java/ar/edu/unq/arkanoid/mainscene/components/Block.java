@@ -4,14 +4,15 @@ import ar.edu.unq.americana.GameComponent;
 import ar.edu.unq.americana.exceptions.GameException;
 import ar.edu.unq.americana.rules.IRule;
 import ar.edu.unq.arkanoid.Arkanoid;
+import ar.edu.unq.arkanoid.mainscene.block.rules.BlockCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.block.rules.BottomCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.block.rules.LeftCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.block.rules.RightCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.block.rules.TopCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.events.BlockDestroyed;
-import ar.edu.unq.arkanoid.scenes.MainScene;
+import ar.edu.unq.arkanoid.scenes.LevelScene;
 
-public class Block extends GameComponent<MainScene> {
+public class Block extends GameComponent<LevelScene> {
 
 	private int lives;
 
@@ -52,6 +53,9 @@ public class Block extends GameComponent<MainScene> {
 	protected IRule<?, ?>[] rules() {
 		return new IRule<?, ?>[] { new TopCollisionRule(),
 				new LeftCollisionRule(), new RightCollisionRule(),
-				new BottomCollisionRule() };
+				new BottomCollisionRule(),
+				// fixed del delta cuando el delta es grande la pelotita entra
+				// en el bloque
+				new BlockCollisionRule() };
 	}
 }

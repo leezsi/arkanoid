@@ -13,9 +13,9 @@ import ar.edu.unq.arkanoid.mainscene.racket.rules.LeftCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.racket.rules.RightCollisionRule;
 import ar.edu.unq.arkanoid.rules.GameStatusEvent;
 import ar.edu.unq.arkanoid.rules.GameStatusEvent.State;
-import ar.edu.unq.arkanoid.scenes.MainScene;
+import ar.edu.unq.arkanoid.scenes.LevelScene;
 
-public class Racket extends GameComponent<MainScene> {
+public class Racket extends GameComponent<LevelScene> {
 
 	private static final int DELTA_TOP = Tuning.getInteger("racket.deltaTop");
 	private static final int SPEED = Tuning.getInteger("racket.speed");

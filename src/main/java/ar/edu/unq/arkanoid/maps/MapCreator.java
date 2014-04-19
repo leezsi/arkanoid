@@ -6,26 +6,30 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import ar.edu.unq.americana.exceptions.GameException;
-import ar.edu.unq.arkanoid.scenes.MainScene;
+import ar.edu.unq.arkanoid.scenes.LevelScene;
 
 public class MapCreator {
 
-	public static void create(final MainScene scene, final String name) {
+	public static int create(final LevelScene scene, final String name) {
 		final InputStream input = ClassLoader.getSystemResourceAsStream(name);
 		final BufferedReader reader = new BufferedReader(new InputStreamReader(
 				input));
 		String line = null;
-		int row = 0, column = 0;
+		int row = 0, column = 0, total = 0;
+
 		try {
 			while ((line = reader.readLine()) != null) {
 				row++;
 				final String[] columns = line.split(",");
 				for (final String value : columns) {
 					column++;
-					scene.addBlock(column, row, Integer.parseInt(value));
+					final int lives = Integer.parseInt(value);
+					total += lives == 0 ? 0 : 1;
+					scene.addBlock(column, row, lives);
 				}
 				column = 0;
 			}
+			return total;
 		} catch (final IOException e) {
 			throw new GameException(e);
 		} finally {

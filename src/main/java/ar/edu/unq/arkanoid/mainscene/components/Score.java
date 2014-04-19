@@ -6,10 +6,11 @@ import java.awt.Font;
 import ar.edu.unq.americana.GameComponent;
 import ar.edu.unq.americana.appearances.Label;
 import ar.edu.unq.americana.events.annotations.Events;
+import ar.edu.unq.arkanoid.Arkanoid;
 import ar.edu.unq.arkanoid.mainscene.events.BlockDestroyed;
-import ar.edu.unq.arkanoid.scenes.MainScene;
+import ar.edu.unq.arkanoid.scenes.LevelScene;
 
-public class Score extends GameComponent<MainScene> {
+public class Score extends GameComponent<LevelScene> {
 
 	private int value;
 	protected final Label label;
@@ -22,13 +23,19 @@ public class Score extends GameComponent<MainScene> {
 				+ String.valueOf(value));
 		this.setAppearance(label);
 		this.setZ(Integer.MAX_VALUE);
-		this.setX((label.getWidth() / 2) + 15);
+		this.setX(Arkanoid.WINDOW_WIDTH / 2);
 		this.setY(15);
+		label.changeOffset(-1, Arkanoid.WINDOW_WIDTH / 2, -1,
+				label.getHeight() / 2);
 	}
 
 	@Events.Fired(BlockDestroyed.class)
 	public void add(final BlockDestroyed destroyed) {
 		value++;
 		label.setText(text + String.valueOf(value));
+	}
+
+	public int getScore() {
+		return value;
 	}
 }

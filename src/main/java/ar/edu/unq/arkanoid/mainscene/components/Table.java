@@ -1,17 +1,30 @@
 package ar.edu.unq.arkanoid.mainscene.components;
 
 import ar.edu.unq.americana.GameComponent;
-import ar.edu.unq.arkanoid.Arkanoid;
-import ar.edu.unq.arkanoid.scenes.MainScene;
+import ar.edu.unq.americana.events.annotations.Events;
+import ar.edu.unq.americana.events.annotations.Events.Fired;
+import ar.edu.unq.arkanoid.mainscene.events.BlockDestroyed;
+import ar.edu.unq.arkanoid.mainscene.events.GameOverEvent;
+import ar.edu.unq.arkanoid.scenes.LevelScene;
 
-public class Table extends GameComponent<MainScene> {
+public class Table extends GameComponent<LevelScene> {
 
-	public int getWidth() {
-		return Arkanoid.WINDOW_WIDTH;
+	private int blocks;
+
+	@Fired(GameOverEvent.class)
+	public void gameOver(final GameOverEvent event) {
+		event.getState().changeScene(getGame());
 	}
 
-	public int getHeight() {
-		return Arkanoid.WINDOW_HEIGHT;
+	@Events.Fired(BlockDestroyed.class)
+	public void add(final BlockDestroyed destroyed) {
+		if (--blocks == 0) {
+			this.fireEvent(new GameOverEvent(this.getScene().getScore(),
+					GameOverEvent.State.WIN));
+		}
 	}
 
+	public void setBockCount(final int blocks) {
+		this.blocks = blocks;
+	}
 }

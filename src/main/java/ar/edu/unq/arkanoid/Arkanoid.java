@@ -8,8 +8,10 @@ import ar.edu.unq.americana.Game;
 import ar.edu.unq.americana.appearances.Sprite;
 import ar.edu.unq.americana.sound.Sound;
 import ar.edu.unq.americana.utils.Tuning;
+import ar.edu.unq.arkanoid.mainscene.TitleScene;
 import ar.edu.unq.arkanoid.mainscene.components.Ball;
-import ar.edu.unq.arkanoid.scenes.MainScene;
+import ar.edu.unq.arkanoid.mainscene.components.Score;
+import ar.edu.unq.arkanoid.scenes.LevelScene;
 import ar.edu.unq.arkanoid.utils.SoundUtils;
 import ar.edu.unq.arkanoid.utils.SpriteUtils;
 
@@ -36,6 +38,9 @@ public class Arkanoid extends Game {
 	public static Sprite BLUE_BALL;
 
 	public static Map<Integer, Sprite> blocks = new HashMap<Integer, Sprite>();
+
+	private int level = 0;
+	private static int LEVELS = Tuning.getInteger("game.levels");
 
 	@Override
 	protected void initializeResources() {
@@ -75,8 +80,7 @@ public class Arkanoid extends Game {
 
 	@Override
 	protected void setUpScenes() {
-		final MainScene mainScene = new MainScene();
-		this.setCurrentScene(mainScene);
+		this.setCurrentScene(new TitleScene());
 	}
 
 	@Override
@@ -89,4 +93,23 @@ public class Arkanoid extends Game {
 		return "Arkanoid";
 	}
 
+	public int getLevel() {
+		return level;
+	}
+
+	public void nextLevel(final Score score) {
+		if (level++ == LEVELS) {
+			level = 0;
+		}
+		this.setCurrentScene(new LevelScene(level, score));
+
+	}
+
+	public void mainScene() {
+		this.setCurrentScene(new TitleScene());
+	}
+
+	public void firstLevel() {
+		this.setCurrentScene(new LevelScene(level = 0, new Score("Score: ")));
+	}
 }
