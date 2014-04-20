@@ -16,7 +16,7 @@ import ar.edu.unq.arkanoid.utils.SoundUtils;
 import ar.edu.unq.arkanoid.utils.SpriteUtils;
 
 public class Arkanoid extends Game {
-
+ 
 	static {
 		Tuning.load("game.properties");
 	}

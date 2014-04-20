@@ -20,13 +20,14 @@
 			generado para desarrollo debería ser reemplazado con uno acorde con el sitio 
 			web donde se deployará el applet -->
 		<security.dir>src/main/security</security.dir>
-<!-- 		<security.dir>src/main/security/</security.dir> -->
 		<security.keystore>keystore.jks</security.keystore>
 		<security.alias>aliasDefault</security.alias>
 		<security.storepass>storePassDefault</security.storepass>
 		<security.keypass>keyPassDefault</security.keypass>
-		<security.dName>CN=hostname, OU=Example Department, O=Example Company,
-			L=Buenos Aires, ST=Buenos Aires, C=AR </security.dName>
+		<security.dName>
+			CN=hostname, OU=Example Department, O=Example Company,
+			L=Buenos Aires, ST=Buenos Aires, C=AR
+		</security.dName>
 
 		<!-- Las siguientes propiedades no se suelen modificar -->
 
@@ -84,10 +85,7 @@
 										<exec dir="${project.basedir}/${security.dir}"
 											executable="keytool" failonerror="true">
 											<arg
-												line="-genkey -keyalg RSA -alias ${security.alias} -keystore ${security.keystore} -dname  ${security.dName} -storepass ${security.storepass} -validity 360 -keysize 2048 -keypass ${security.keypass}" />
-											<!-- line="-genkey -keyalg RSA -alias ${security.alias} -keystore 
-												${security.keystore} -dname &quot;${security.dName}&quot; -storepass ${security.storepass} 
-												-validity 360 -keysize 2048 -keypass ${security.keypass}" /> -->
+												line="-genkey -keyalg RSA -alias ${security.alias} -keystore ${security.keystore} -dname &quot;${security.dName}&quot; -storepass ${security.storepass} -validity 360 -keysize 2048 -keypass ${security.keypass}" />
 										</exec>
 									</else>
 								</if>
@@ -113,6 +111,10 @@
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
+					<includes>
+						<include>src/main/java</include>
+						<include>src/main/resources</include>
+					</includes>
 				</configuration>
 			</plugin>
 			<!-- En el manifest agrega el Desktop Launcher para poder ser un jar ejecutable -->
@@ -152,6 +154,7 @@
 						</manifestEntries>
 					</archive>
 					<recompressZippedFiles>true</recompressZippedFiles>
+					<verbose>true</verbose>
 				</configuration>
 				<executions>
 					<execution>
@@ -163,6 +166,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<!-- Firma los jars con el certificado para que pueda ser utilizado como 
 				un applet -->
 <!-- 			<plugin> -->
@@ -179,10 +183,12 @@
 <!-- 							<alias>${security.alias}</alias> -->
 <!-- 							<storepass>${security.storepass}</storepass> -->
 <!-- 							<keypass>${security.keypass}</keypass> -->
+<!-- 							<verbose>true</verbose> -->
 <!-- 						</configuration> -->
 <!-- 					</execution> -->
 <!-- 				</executions> -->
 <!-- 			</plugin> -->
+
 			<!-- Genera los archivos que acompañan al jar generado por el assembly 
 				para que sea más sencillo su ejecución. En caso de quere modificar el .sh, 
 				el .bat o el .html generado se puede modficiar los templates o los parámetros 
@@ -205,10 +211,10 @@
 								</includes>
 							</templateFiles>
 							<templateValues>
-								<title>${pom.name}</title>
+								<title>${project.name}</title>
 								<gameClass>${gameClass}</gameClass>
 								<appletClass>${appletClass}</appletClass>
-								<jarFile>${pom.build.finalName}-${assemblyDescriptor}.jar</jarFile>
+								<jarFile>${project.build.finalName}-${assemblyDescriptor}.jar</jarFile>
 								<javaArgs>${javaArgs}</javaArgs>
 								<width>${width}</width>
 								<height>${height}</height>
@@ -256,6 +262,7 @@
 			<groupId>ar.edu.unq</groupId>
 			<artifactId>americana</artifactId>
 			<version>0.0.1</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
