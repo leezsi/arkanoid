@@ -1,18 +1,15 @@
-package ar.edu.unq.arkanoid.mainscene;
-
-import java.awt.Color;
+package ar.edu.unq.arkanoid.scenes.title;
 
 import ar.edu.unq.americana.GameScene;
-import ar.edu.unq.americana.appearances.Circle;
 import ar.edu.unq.americana.components.Button;
 import ar.edu.unq.americana.components.Mouse;
 import ar.edu.unq.arkanoid.Arkanoid;
-import ar.edu.unq.arkanoid.gameover.GameOverScene;
+import ar.edu.unq.arkanoid.scenes.gameover.GameOverScene;
 
 public class TitleScene extends GameScene {
 
 	public TitleScene() {
-		Mouse.get().setAppearance(new Circle(Color.black, 3));
+		Mouse.get().setAppearance(Arkanoid.BLUE_BALL.copy());
 		this.addButton();
 	}
 

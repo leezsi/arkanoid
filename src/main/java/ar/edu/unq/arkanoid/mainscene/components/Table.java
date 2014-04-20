@@ -5,7 +5,7 @@ import ar.edu.unq.americana.events.annotations.Events;
 import ar.edu.unq.americana.events.annotations.Events.Fired;
 import ar.edu.unq.arkanoid.mainscene.events.BlockDestroyed;
 import ar.edu.unq.arkanoid.mainscene.events.GameOverEvent;
-import ar.edu.unq.arkanoid.scenes.LevelScene;
+import ar.edu.unq.arkanoid.scenes.levelScene.LevelScene;
 
 public class Table extends GameComponent<LevelScene> {
 

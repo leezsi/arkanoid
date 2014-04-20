@@ -8,7 +8,7 @@ import ar.edu.unq.arkanoid.Arkanoid;
 import ar.edu.unq.arkanoid.mainscene.appearance.LiveAppearance;
 import ar.edu.unq.arkanoid.mainscene.ball.events.BallOut;
 import ar.edu.unq.arkanoid.mainscene.events.GameOverEvent;
-import ar.edu.unq.arkanoid.scenes.LevelScene;
+import ar.edu.unq.arkanoid.scenes.levelScene.LevelScene;
 
 public class LiveCounter extends GameComponent<LevelScene> {
 

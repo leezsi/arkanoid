@@ -4,9 +4,9 @@ import java.awt.Color;
 
 import ar.edu.unq.americana.Game;
 import ar.edu.unq.americana.events.game.GameEvent;
-import ar.edu.unq.arkanoid.gameover.GameOverScene;
-import ar.edu.unq.arkanoid.gameover.WinnerGameOverScene;
 import ar.edu.unq.arkanoid.mainscene.components.Score;
+import ar.edu.unq.arkanoid.scenes.gameover.GameOverScene;
+import ar.edu.unq.arkanoid.scenes.gameover.WinnerGameOverScene;
 
 public class GameOverEvent extends GameEvent {
 

@@ -10,7 +10,7 @@ import ar.edu.unq.arkanoid.mainscene.block.rules.LeftCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.block.rules.RightCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.block.rules.TopCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.events.BlockDestroyed;
-import ar.edu.unq.arkanoid.scenes.LevelScene;
+import ar.edu.unq.arkanoid.scenes.levelScene.LevelScene;
 
 public class Block extends GameComponent<LevelScene> {
 

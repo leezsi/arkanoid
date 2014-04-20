@@ -1,4 +1,4 @@
-package ar.edu.unq.arkanoid.gameover;
+package ar.edu.unq.arkanoid.scenes.gameover;
 
 import java.awt.Color;
 

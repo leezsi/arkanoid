@@ -8,7 +8,7 @@ import ar.edu.unq.americana.appearances.Label;
 import ar.edu.unq.americana.events.annotations.Events;
 import ar.edu.unq.arkanoid.Arkanoid;
 import ar.edu.unq.arkanoid.mainscene.events.BlockDestroyed;
-import ar.edu.unq.arkanoid.scenes.LevelScene;
+import ar.edu.unq.arkanoid.scenes.levelScene.LevelScene;
 
 public class Score extends GameComponent<LevelScene> {
 

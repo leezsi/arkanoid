@@ -13,7 +13,7 @@ import ar.edu.unq.arkanoid.mainscene.racket.rules.LeftCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.racket.rules.RightCollisionRule;
 import ar.edu.unq.arkanoid.rules.GameStatusEvent;
 import ar.edu.unq.arkanoid.rules.GameStatusEvent.State;
-import ar.edu.unq.arkanoid.scenes.LevelScene;
+import ar.edu.unq.arkanoid.scenes.levelScene.LevelScene;
 
 public class Racket extends GameComponent<LevelScene> {
 

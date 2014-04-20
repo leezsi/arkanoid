@@ -8,10 +8,10 @@ import ar.edu.unq.americana.Game;
 import ar.edu.unq.americana.appearances.Sprite;
 import ar.edu.unq.americana.sound.Sound;
 import ar.edu.unq.americana.utils.Tuning;
-import ar.edu.unq.arkanoid.mainscene.TitleScene;
 import ar.edu.unq.arkanoid.mainscene.components.Ball;
 import ar.edu.unq.arkanoid.mainscene.components.Score;
-import ar.edu.unq.arkanoid.scenes.LevelScene;
+import ar.edu.unq.arkanoid.scenes.levelScene.LevelScene;
+import ar.edu.unq.arkanoid.scenes.title.TitleScene;
 import ar.edu.unq.arkanoid.utils.SoundUtils;
 import ar.edu.unq.arkanoid.utils.SpriteUtils;
 

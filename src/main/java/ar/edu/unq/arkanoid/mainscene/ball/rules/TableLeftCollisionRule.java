@@ -3,7 +3,7 @@ package ar.edu.unq.arkanoid.mainscene.ball.rules;
 import ar.edu.unq.americana.rules.IRule;
 import ar.edu.unq.americana.utils.Vector2D;
 import ar.edu.unq.arkanoid.mainscene.components.Ball;
-import ar.edu.unq.arkanoid.scenes.LevelScene;
+import ar.edu.unq.arkanoid.scenes.levelScene.LevelScene;
 
 public class TableLeftCollisionRule implements IRule<Ball, LevelScene> {
 

@@ -1,6 +1,8 @@
-package ar.edu.unq.arkanoid.scenes;
+package ar.edu.unq.arkanoid.scenes.levelScene;
 
 import ar.edu.unq.americana.GameScene;
+import ar.edu.unq.americana.appearances.Invisible;
+import ar.edu.unq.americana.components.Mouse;
 import ar.edu.unq.americana.utils.Tuning;
 import ar.edu.unq.arkanoid.mainscene.components.Ball;
 import ar.edu.unq.arkanoid.mainscene.components.Block;
@@ -20,6 +22,7 @@ public class LevelScene extends GameScene {
 	private final Score score;
 
 	public LevelScene(final int level, final Score score) {
+		Mouse.get().setAppearance(new Invisible());
 		this.score = score;
 		this.addComponent(score);
 		ball = new Ball();

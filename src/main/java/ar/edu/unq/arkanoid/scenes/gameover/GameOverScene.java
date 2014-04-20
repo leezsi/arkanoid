@@ -1,11 +1,10 @@
-package ar.edu.unq.arkanoid.gameover;
+package ar.edu.unq.arkanoid.scenes.gameover;
 
 import java.awt.Color;
 import java.awt.Font;
 
 import ar.edu.unq.americana.GameComponent;
 import ar.edu.unq.americana.GameScene;
-import ar.edu.unq.americana.appearances.Circle;
 import ar.edu.unq.americana.appearances.Label;
 import ar.edu.unq.americana.components.Button;
 import ar.edu.unq.americana.components.Mouse;
@@ -19,7 +18,7 @@ public class GameOverScene extends GameScene {
 	private final Score score;
 
 	public GameOverScene(final Score score, final String text, final Color color) {
-		Mouse.get().setAppearance(new Circle(Color.black, 3));
+		Mouse.get().setAppearance(Arkanoid.BLUE_BALL.copy());
 		this.text = text;
 		this.color = color;
 		this.addLabel();

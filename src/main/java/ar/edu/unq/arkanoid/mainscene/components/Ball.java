@@ -5,7 +5,6 @@ import ar.edu.unq.americana.GameComponent;
 import ar.edu.unq.americana.appearances.Appearance;
 import ar.edu.unq.americana.constants.Key;
 import ar.edu.unq.americana.events.annotations.Events.Keyboard.Press;
-import ar.edu.unq.americana.events.annotations.Events.Update;
 import ar.edu.unq.americana.rules.IRule;
 import ar.edu.unq.americana.utils.Tuning;
 import ar.edu.unq.americana.utils.Vector2D;
@@ -18,7 +17,7 @@ import ar.edu.unq.arkanoid.mainscene.ball.rules.TableLeftCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.ball.rules.TableOutRule;
 import ar.edu.unq.arkanoid.mainscene.ball.rules.TableRightCollisionRule;
 import ar.edu.unq.arkanoid.mainscene.ball.rules.TableTopCollisionRule;
-import ar.edu.unq.arkanoid.scenes.LevelScene;
+import ar.edu.unq.arkanoid.scenes.levelScene.LevelScene;
 
 public class Ball extends GameComponent<LevelScene> {
 	public static final int BALL_DIAMETER = Tuning.getInteger("ball.diameter");
@@ -72,10 +71,6 @@ public class Ball extends GameComponent<LevelScene> {
 		final Appearance rect = racket.getAppearance();
 		return (racket.getY() - (rect.getHeight() / 2))
 				- (this.getAppearance().getHeight() / 2);
-	}
-
-	@Update
-	public void update(final double delta) {
 	}
 
 	public void setRacket(final Racket racket) {

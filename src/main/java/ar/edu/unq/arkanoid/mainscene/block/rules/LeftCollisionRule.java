@@ -4,7 +4,7 @@ import ar.edu.unq.americana.colissions.CollisionDetector;
 import ar.edu.unq.americana.utils.Vector2D;
 import ar.edu.unq.arkanoid.mainscene.components.Ball;
 import ar.edu.unq.arkanoid.mainscene.components.Block;
-import ar.edu.unq.arkanoid.scenes.LevelScene;
+import ar.edu.unq.arkanoid.scenes.levelScene.LevelScene;
 
 public class LeftCollisionRule extends AbstractCollisionRule {
 
