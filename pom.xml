@@ -169,25 +169,25 @@
 
 			<!-- Firma los jars con el certificado para que pueda ser utilizado como 
 				un applet -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-jarsigner-plugin</artifactId> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<goals> -->
-<!-- 							<goal>sign</goal> -->
-<!-- 						</goals> -->
-<!-- 						<phase>package</phase> -->
-<!-- 						<configuration> -->
-<!-- 							<keystore>${security.dir}/${security.keystore}</keystore> -->
-<!-- 							<alias>${security.alias}</alias> -->
-<!-- 							<storepass>${security.storepass}</storepass> -->
-<!-- 							<keypass>${security.keypass}</keypass> -->
-<!-- 							<verbose>true</verbose> -->
-<!-- 						</configuration> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jarsigner-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<keystore>${security.dir}/${security.keystore}</keystore>
+							<alias>${security.alias}</alias>
+							<storepass>${security.storepass}</storepass>
+							<keypass>${security.keypass}</keypass>
+							<verbose>true</verbose>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 			<!-- Genera los archivos que acompañan al jar generado por el assembly 
 				para que sea más sencillo su ejecución. En caso de quere modificar el .sh, 
