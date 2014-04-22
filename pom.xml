@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
@@ -36,8 +35,10 @@
 			ejecuta el juego. El launcher del eclipse sólo se genera al inicio del proyecto 
 			y no se modifica al cambiar este parámetro. Por lo tanto en caso de modificarse 
 			se debe reconfigurar manualmente en el menu run configurations -->
-		<javaArgs>-Dsun.java2d.noddraw=true -Dsun.java2d.opengl=True -Xmx1024M
-			-Xms512M</javaArgs>
+		<javaArgs>
+			-Dsun.java2d.noddraw=true -Dsun.java2d.opengl=True -Xmx1024M -Xms512M
+			<!-- -->
+		</javaArgs>
 		<!-- La clases launchers del en modo desktop, debe contener un main que 
 			reciba por parámetro la clase del juego -->
 		<mainClass>ar.edu.unq.americana.DesktopGameLauncher</mainClass>
@@ -51,13 +52,13 @@
 			reconfigure el plugin de velocity en este mismo pom para adecuar el parametro 
 			jarFile -->
 		<assemblyDescriptor>jar-with-dependencies</assemblyDescriptor>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<name>Arkanoid</name>
 	<url>.</url>
-	<description>Arkanoid Powered By Uqbar-Vainilla</description>
+
 	<build>
 		<plugins>
-
 			<!-- Utilizado para ejecutar keytool y así generar el certificado usado 
 				por el applet. Usa el keytool disponible como comando del sistema operativo. 
 				En caso de querer utilizar otro keytool, o una versión del mismo antigua 
@@ -104,6 +105,8 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -111,12 +114,9 @@
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
-					<includes>
-						<include>src/main/java</include>
-						<include>src/main/resources</include>
-					</includes>
 				</configuration>
 			</plugin>
+
 			<!-- En el manifest agrega el Desktop Launcher para poder ser un jar ejecutable -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -133,6 +133,7 @@
 					</archive>
 				</configuration>
 			</plugin>
+
 			<!-- Construye un único jar con todas las dependencias para que sea más 
 				cómodo el deploy tanto del applet como desktop. Agrega en el manifest el 
 				Main (necesario para usarse en modo desktop y el "Pemissions" necesario para 
@@ -159,7 +160,7 @@
 				<executions>
 					<execution>
 						<id>make-assembly</id>
-						<phase>package</phase>
+						<phase>prepare-package</phase>
 						<goals>
 							<goal>single</goal>
 						</goals>
@@ -188,6 +189,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 
 			<!-- Genera los archivos que acompañan al jar generado por el assembly 
 				para que sea más sencillo su ejecución. En caso de quere modificar el .sh, 
@@ -224,6 +226,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -257,18 +260,12 @@
 		</pluginManagement>
 	</build>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>ar.edu.unq</groupId>
 			<artifactId>americana</artifactId>
 			<version>0.0.1</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.4</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
